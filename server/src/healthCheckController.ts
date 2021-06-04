@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
 
 export const healthCheckController = (req: Request, res: Response) => {
-  res.status(200).send('ok');
+  res.status(200).json({ message: 'ok' });
 };
