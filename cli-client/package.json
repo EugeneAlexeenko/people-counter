@@ -1,0 +1,16 @@
+{
+  "name": "cli-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Eugene Alexeenko",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "@types/axios": "0.14.0"
+  }
+}

@@ -56,7 +56,9 @@ router.put('/update-count', (req: Request, res: Response) => {
   }
 
   if (action === UpdateActions.DECREMENT) {
-    rooms[roomName].count = rooms[roomName].count - count;
+    const newCount = rooms[roomName].count - count;
+
+    rooms[roomName].count = newCount > 0 ? newCount : 0;
   }
 
   eventEmitter.emit(ServiceEvents.COUNT_CHANGED);
