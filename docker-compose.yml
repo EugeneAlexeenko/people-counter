@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  client:
+    container_name: web-client
+    build:
+      context: ./web-client
+    ports:
+      - 3000:3000
+    links:
+      - server
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+    ports:
+      - 5001:5001

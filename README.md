@@ -1,9 +1,14 @@
 # People counter
 
 ## How to test on local
-1. Simply run `npm start` from root directory.
-   - Server will start on port `5001`
-   - Web-client will start on port `3000`
+1. There are 2 ways how to start this project. Run any of these commands from the root directory 
+    - `npm start`
+    - `docker-compose up` 
+    
+   Server will start on port `5001`
+   Web-client will start on port `3000`
+
+
 2. Make request to `localhost:5001/update-count` with such a payload, `count` is optional
 ```
     {
