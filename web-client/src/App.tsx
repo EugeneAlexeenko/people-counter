@@ -19,7 +19,9 @@ function App() {
   }, []);
 
   if (!Object.keys(rooms).length) {
-    return null;
+    return (
+      <div>Rooms data will be available here, make some requests with postman or cli-tool</div>
+    );
   }
 
   console.log(rooms);

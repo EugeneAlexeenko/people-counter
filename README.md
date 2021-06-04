@@ -1,5 +1,27 @@
 # People counter
 
+## How to test on local
+1. Simply run `npm start` from root directory.
+   - Server will start on port `5001`
+   - Web-client will start on port `3000`
+2. Make request to `localhost:5001/update-count` with such a payload, `count` is optional
+```
+    {
+        "roomName": "room1",
+        "action": "INCREMENT",
+        "count": 3
+    }
+```
+3. If you want to emulate sensors with cli tool, just run `npm run cli` with proper arguments
+
+examples:
+```
+npm run cli room1 INCREMENT
+npm run cli room1 INCREMENT 5
+npm run cli room1 DECREMENT
+npm run cli room1 DECREMENT 5
+```
+
 ## Stories
 
 - Create a backend service
