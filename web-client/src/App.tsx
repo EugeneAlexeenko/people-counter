@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import socketIOClient from 'socket.io-client';
+const ENDPOINT = 'http://127.0.0.1:5001';
 
 function App() {
+  const [rooms, setRooms] = useState({});
+
+  useEffect(() => {
+    const socket = socketIOClient(ENDPOINT);
+
+    socket.on('allRooms', (data) => {
+      setRooms(data);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  if (!Object.keys(rooms).length) {
+    return null;
+  }
+
+  console.log(rooms);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {Object.values(rooms).map((room: any) => {
+        return (
+          <div key={room.name}>
+            {room.name} - {room.count}
+          </div>
+        );
+      })}
     </div>
   );
 }
