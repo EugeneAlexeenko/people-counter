@@ -1,6 +1,6 @@
 import { createServer } from 'http';
-import { app } from './app';
 import { Server } from 'socket.io';
+import { app } from './app';
 import { socketListener } from './socketListener';
 
 const port = process.env.PORT || 5001;
