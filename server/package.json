@@ -1,0 +1,44 @@
+{
+  "name": "people-counter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server:start": "node ./build/server.js",
+    "server:watch": "ts-node-dev --respawn --rs ./src/server.ts",
+    "server:watch:inspect": "ts-node-dev --respawn --inspect --rs ./src/server.ts",
+    "server:clean": "rimraf ./build",
+    "server:compile": "tsc",
+    "server:build": "npm run server:clean && npm run server:compile",
+    "start": "npm run server:build && npm run server:start",
+    "test": "jest",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prettier:format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "keywords": [],
+  "author": "Eugene Alexeenko",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.12",
+    "@types/socket.io": "3.0.2",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.3.2"
+  }
+}
