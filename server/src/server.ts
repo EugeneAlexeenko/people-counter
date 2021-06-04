@@ -3,6 +3,8 @@ import { createServer } from 'http';
 import { Server, Socket } from 'socket.io';
 import express, { Application, Router, Request, Response } from 'express';
 import cors from 'cors';
+import { RoomsDB, ServiceEvents, UpdateActions } from './types';
+import { roomsDB } from './roomsDB';
 
 const port = process.env.PORT || 5001;
 const app: Application = express();
@@ -10,34 +12,7 @@ const router = Router();
 
 const eventEmitter = new EventEmitter();
 
-type Room = {
-  name: string;
-  count: number;
-};
-
-type RoomsDB = {
-  [roomName: string]: Room;
-};
-
-enum UpdateActions {
-  INCREMENT = 'INCREMENT',
-  DECREMENT = 'DECREMENT'
-}
-
-enum ServiceEvents {
-  'COUNT_CHANGED' = 'COUNT_CHANGED'
-}
-
-const rooms: RoomsDB = {
-  room1: {
-    name: 'room1',
-    count: 0
-  },
-  room2: {
-    name: 'room2',
-    count: 0
-  }
-};
+const rooms: RoomsDB = roomsDB;
 
 app.use(cors());
 app.use(express.json());
