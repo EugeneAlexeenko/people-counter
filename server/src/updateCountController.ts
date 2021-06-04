@@ -22,5 +22,5 @@ export const updateCountController = (req: Request, res: Response) => {
 
   eventEmitter.emit(ServiceEvents.COUNT_CHANGED);
 
-  res.status(200).send('Updated');
+  res.status(200).json({ message: 'Updated' });
 };
